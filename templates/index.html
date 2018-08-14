@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      background-size: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+    }
+
+    .title {
+      margin-top: 2rem;
+      font-size: 4rem;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+    }
+
+    #app {
+      background: #8360c3;
+      background: linear-gradient(to right, #2ebf91, #8360c3);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .DataForm {
+      height: 10vh;
+      margin: 2rem auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .DataForm-text,
+    .DataForm-btn {
+      height: 100%;
+      border-radius: 5px;
+      margin: auto .5rem;
+    }
+
+
+    .DataForm-text {
+      width: 60%;
+      border: none;
+    }
+
+    .DataForm-btn {
+      width: 20%;
+      font-size: 1.5rem;
+      background-color: white;
+      border: 2px solid #8360c3;
+      transition: all .5s;
+      padding: .2rem;
+    }
+
+    .DataForm-btn:hover {
+      background-color: #8360c3;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .word-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .word-item {
+      text-align: center;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .word-item span {
+      text-transform: uppercase;
+      font-weight: bold;
+      text-shadow: 2px 2px #8360c3;
+    }
+  </style>
+  <title>FrasesIO</title>
+</head>
+<body>
+  <main id="app">
+    <h1 class="title">Bienvenid@s a FrasesIO</h1>
+    <form class="DataForm" @click.prevent="getType">
+      <input class="DataForm-text" v-model="text" type="text" name="text" placeholder="Ingresa tu frase">
+      <button class="DataForm-btn">Buscar</button>
+    </form>
+    <ul class="word-list"v-if="words">
+      <li class="word-item" v-for="word in words"><span v-text="word.text"></span> es de tipo: <span v-text="word.type"></span></li>
+    </ul>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        text: '',
+        words: []
+      },
+      methods: {
+        getType: function() {
+          fetch('/api', {
+            method: 'POST',
+            body: JSON.stringify({text: this.text}),
+            headers: {
+              'Accept': 'application/json',
+              'Content-type': 'application/json'
+            }
+          })
+            .then(res => res.json())
+            .then(data => {
+              this.words = data.types
+            })
+        this.text = ''
+          }
+        }
+    })
+  </script>
+</body>
+</html>
