@@ -1,14 +1,20 @@
 import requests
 from bs4 import BeautifulSoup
 
-urls = "http://dle.rae.es/hola"
-
 
 def extract(palabra: str):
-    r = requests.get(urls)
-    if r.status_code == 200:
-        soup = BeautifulSoup(r, "html.parser")
-        name_box = soup.find("abbr", attrs={"class": "d"})
-        name = name_box.text.strip()
+    r = requests.get("http://www.wordreference.com/definicion/{}".format(palabra))
 
-extract("hola")
+    if r.status_code == 200:
+        soup = BeautifulSoup(r.text, "html.parser")
+        definicion = soup.find("ol", {"class": "entry"}).getText()
+        tipo = []
+        palabras = ""
+        for letra in definicion:
+            if letra == ".":
+                tipo.append(palabras)
+                palabras = ""
+            else:
+                palabras += letra
+
+        return tipo[0]
