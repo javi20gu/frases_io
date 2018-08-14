@@ -1,10 +1,10 @@
 from modules import extract
-from modules import Convert
 
 
 print("|________Bienvenid@s a FrasesIO________|")
 
-frase = input("\nPor favor introduce una frase para expecificarte que tipo es la palabra, recuerda que debes de poner un punto final cuando termines la frase: ").lower()
+frase = input("\nPor favor introduce una frase para expecificarte que tipo es la palabra: ").lower()
+palabras = frase.lower().split(" ")
 
-palabra = Convert(frase).get_palabra()
-
+for palabra in palabras:
+    print("La palabra |-{}-| es de tipo -> {}".format(palabra, extract(palabra)))
