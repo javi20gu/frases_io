@@ -1,27 +1,27 @@
 import requests
 from bs4 import BeautifulSoup
-from .dicc import ABREVIACIONES
 
 
 def extract(palabra: str):
+    # Obtenemos los datos, segun la palabra que introduzcamos.
     r = requests.get("http://www.wordreference.com/definicion/{}".format(palabra))
-
+    # Declaramos una lista para almacenar los posibles tipos.
+    tipo = []
+    # Verificamos que va a responder con el codigo 200.
     if r.status_code == 200:
+        # Extraemos todos los datos
         soup = BeautifulSoup(r.text, "html.parser")
-        if soup.find("ol", {"class": "entry"}) !=  None:
-            definicion = soup.find("ol", {"class": "entry"}).getText()
-            tipo = []
-            palabras = ""
-            for letra in definicion:
-                if letra == ".":
-                    tipo.append(palabras)
-                    palabras = ""
-                else:
-                    palabras += letra
-            if tipo[0] != "":
-                return ABREVIACIONES[tipo[0]]
-            else:
-                return "Tipo no asignado: {}".format(tipo[0])
+        # Comprobamos que la palabra exista.
+        if soup.find("ol", {"class": "entry"}) != None:
+            # Buscamos todas las definiciones.
+            definiciones = soup.find_all("ol", {"class": "entry"})
+            # Vamos una por una, para así añadirlo a la variable tipo.
+            for definicion in definiciones:
+                indice = definicion.getText().find(".")
+                tipo.append(definicion.getText()[:indice])
+            # Retornamos los tipos de la palabra.
+            return tipo    
+        # En caso de que no lo encuentre retorna False.
         else:
-            print("\nError: Palabra no encontrada en el diccionaria, intentelo con otra")
-            return "No encontrada"
+            return False
+            
