@@ -14,5 +14,6 @@ ABREVIACIONES = {
     "v": "Verbo",
     "tr": "Verbo",
     "suf": "Sufijo",
-    "pref": "Prefijo"
+    "pref": "Prefijo",
+    "cop": "Verbo"
 }
