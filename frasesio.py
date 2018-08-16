@@ -4,7 +4,7 @@ from modules import extract, ABREVIACIONES
 print("|________Bienvenid@s a FrasesIO________|")
 
 # El usuario introduce toda la frase
-frase = input("\nPor favor introduce una frase para expecificarte que tipo es la palabra: ").lower()
+frase = input("\nIntroduce una frase: ").lower()
 # Lo convierte en una lista mediante los espacios
 palabras = frase.lower().split(" ")
 
@@ -12,7 +12,7 @@ palabras = frase.lower().split(" ")
 for palabra in palabras:
     
     # Si la palabra existe en el diccionario
-    if not extract(palabra):
+    if extract(palabra):
         print("\n\nLa palabra |-{}-| es: ".format(palabra), end='')
         
         # Recorremos cada tipo de la lista con su indice
