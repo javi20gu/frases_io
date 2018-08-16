@@ -13,5 +13,6 @@ ABREVIACIONES = {
     "f": "Nombre Femenino",
     "v": "Verbo",
     "tr": "Verbo",
-    "suf": "Sufijo"
+    "suf": "Sufijo",
+    "pref": "Prefijo"
 }
