@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <title>FrasesIO</title>
+</head>
+<body>
+  <main id="app">
+    <h1 class="title">Bienvenid@s a FrasesIO</h1>
+    <form class="DataForm">
+      <input
+        class="DataForm-text"
+        v-model="text"
+        type="text"
+        name="text"
+        placeholder="Ingresa tu frase"
+        required
+      >
+      <button class="DataForm-btn" @click.prevent="getType">Buscar</button>
+    </form>
+    <template v-if="show">
+      <transition>
+        <div class="spinner" v-if="words.length == 0">
+          <div class="cube1"></div>
+          <div class="cube2"></div>
+        </div>
+        <ul class="word-list" v-else>
+          <li
+            class="word-item"
+            v-for="word in words"
+          >
+            <span v-text="word.text"></span> es de tipo: <span v-text="word.type"></span>
+          </li>
+        </ul>
+      </transition>
+    </template>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

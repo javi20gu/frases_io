@@ -1,29 +1,29 @@
 from modules import extract, ABREVIACIONES
 
 
-print("|________Bienvenid@s a FrasesIO________|")
+def frasesio():
+    print("|________Bienvenid@s a FrasesIO________|")
 
-# El usuario introduce toda la frase
-frase = input("\nIntroduce una frase: ").lower()
-# Lo convierte en una lista mediante los espacios
-palabras = frase.lower().split(" ")
+    # El usuario introduce toda la frase
+    frase = input("\nIntroduce una frase: ").lower()
+    # Lo convierte en una lista mediante los espacios
+    palabras = frase.lower().split(" ")
 
-# Recorre todas las palabras introducidas
-for palabra in palabras:
-    
-    # Si la palabra existe en el diccionario
-    if extract(palabra):
-        print("\n\nLa palabra |-{}-| es: ".format(palabra), end='')
-        
-        # Recorremos cada tipo de la lista con su indice
-        for i, tipo in enumerate(extract(palabra)):
-            print(ABREVIACIONES[tipo], end="")
+    # Recorre todas las palabras introducidas
+    for palabra in palabras:
+        tipos = extract(palabra)
+        # Si la palabra existe en el diccionario
+        if tipos:
+            tipos = map(lambda tipo: ABREVIACIONES[tipo], tipos)
+            resultado = " o ".join(tipos)
+            print("\n\nLa palabra |-{}-| es de tipo: {}\n"
+                  .format(palabra, resultado), end="")
+        # Si la palabra no existe
+        else:
+            print(
+                "\n\nLa palabra |-{}-| aún no está"
+                " en el diccionario\n".format(palabra), end="")
 
-            # Comprobamos que la longitud de la lista sea mayor a mas de un elemento 
-            if len(extract(palabra)) > 1 and (i+1) < len(extract(palabra)):
-                print(" o ", end='')
 
-    # Si la palabra no existe
-    else:
-        print("\n\nLa palabra |-{}-| aún no está en el diccionario".format(palabra),end='')
-        
+if __name__ == '__main__':
+    frasesio()

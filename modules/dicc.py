@@ -1,5 +1,3 @@
-
-
 ABREVIACIONES = {
     "adv": "Adverbio",
     "contr": "Contracción de la preposición + artículo",

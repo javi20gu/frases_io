@@ -1,0 +1,113 @@
+*,
+*::before,
+*::after {
+  background-size: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.title {
+  margin-top: 2rem;
+  font-size: 4rem;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+#app {
+  background: #8360c3;
+  background: linear-gradient(to right, #2ebf91, #8360c3);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.DataForm {
+  height: 10vh;
+  margin: 2rem auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.DataForm-text,
+.DataForm-btn {
+  height: 100%;
+  border-radius: 5px;
+  margin: auto .5rem;
+}
+
+.DataForm-text {
+  width: 60%;
+  border: none;
+}
+
+.DataForm-btn {
+  width: 20%;
+  font-size: 1.5rem;
+  background-color: white;
+  border: 2px solid #8360c3;
+  transition: all .5s;
+  padding: .2rem;
+}
+
+.DataForm-btn:hover {
+  background-color: #8360c3;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.word-list {
+  list-style: none;
+  padding: 0;
+}
+
+.word-item {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.word-item span {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 2px 2px #8360c3;
+}
+
+/* Spinner */
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.cube1, .cube2 {
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+  animation-delay: -0.9s;
+}
+
+@keyframes sk-cubemove {
+  25% { transform: translateX(42px) rotate(-90deg) scale(0.5); }
+  50% { transform: translateX(42px) translateY(42px) rotate(-179deg); }
+  50.1% { transform: translateX(42px) translateY(42px) rotate(-180deg); }
+  75% { transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5); }
+  100% { transform: rotate(-360deg); }
+}
