@@ -1,2 +1,18 @@
+<<<<<<< HEAD
 bs4 == 0.0.1
 requests == 2.19.1
+=======
+beautifulsoup4==4.6.3
+bs4==0.0.1
+certifi==2018.8.13
+chardet==3.0.4
+click==6.7
+Flask==1.0.2
+idna==2.7
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+requests==2.19.1
+urllib3==1.23
+Werkzeug==0.14.1
+>>>>>>> b34a6467695f507cc36f6a8345e55d0208fbf246

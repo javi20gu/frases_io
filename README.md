@@ -1,7 +1,6 @@
 # frases_io
 Programa que te dice de que tipo de palabra es, en base a una frase.
 
-
 ## Requisitos:
 
 * requests
