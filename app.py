@@ -5,7 +5,7 @@ from web import app
 
 
 def main():
-    if "server" in sys.argv:
+    if "server" in sys.argv or "-s" in sys.argv:
         app.run()
     else:
         frasesio()
