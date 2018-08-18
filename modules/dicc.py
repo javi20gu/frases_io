@@ -4,14 +4,14 @@ ABREVIACIONES = {
     "pron": "Pronombre",
     "conj": "Conjunción",
     "adj": "Adjetivo",
-    "intr": "Verbo",
+    "intr": "Verbo Intrasitivo",
     "art": "Articulo",
     "interj": "interjección",
     "m": "Nombre Masculino",
     "f": "Nombre Femenino",
     "v": "Verbo",
-    "tr": "Verbo",
+    "tr": "Verbo Transitivo",
     "suf": "Sufijo",
     "pref": "Prefijo",
-    "cop": "Verbo"
+    "cop": "Verbo Copulativo"
 }
