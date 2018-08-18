@@ -18,9 +18,6 @@ python app.py
 ```
 python app.py server
 ```
-
-### Version en desarrollo
-
-
 ![Foto Ejemplo](ejm.PNG)
+
 **Version v1.2.0**
