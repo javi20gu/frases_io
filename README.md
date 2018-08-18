@@ -20,4 +20,4 @@ python app.py server
 ```
 ![Foto Ejemplo](ejm.PNG)
 
-**Version v1.2.0**
+**Version v1.2.1**
