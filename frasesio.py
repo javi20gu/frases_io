@@ -12,7 +12,7 @@ def frasesio():
     for palabra in palabras:
         tipos = extract(palabra)
         # Si la palabra existe en el diccionario
-        if tipos:
+        if tipos != None:
             tipos = map(lambda tipo: ABREVIACIONES[tipo], tipos)
             resultado = " o ".join(tipos)
             print("\n\nLa palabra |-{}-| es de tipo: {}\n"
