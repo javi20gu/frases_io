@@ -1,5 +1,6 @@
 from modules import extract, ABREVIACIONES
 
+
 def frasesio():
     print("|________Bienvenid@s a FrasesIO________|")
 
@@ -10,7 +11,7 @@ def frasesio():
     for palabra in palabras:
         tipos = extract(palabra)
         # Si la palabra existe en el diccionario
-        if tipos != None:
+        if tipos:
             tipos = map(lambda tipo: ABREVIACIONES[tipo], tipos)
             resultado = " o ".join(tipos)
             print("\n\nLa palabra |-{}-| es de tipo: {}\n"
