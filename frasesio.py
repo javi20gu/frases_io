@@ -18,7 +18,7 @@ def frasesio():
                 print("\n\nLa palabra |-{}-| es de tipo: {}\n"
                     .format(palabra, resultado), end="")
             except KeyError as a:
-                print("Error: Abreviatura no incluida en el diccionario ({}), si quiere informar utilize el email -> javierhidalgo_c@hotmail.com".format(a))
+                print("Error ({}): Abreviatura no incluida en el diccionario ({}), si quiere informar utilize el email -> javierhidalgo_c@hotmail.com".format(palabra, a))
         # Si la palabra no existe
         else:
             print(
