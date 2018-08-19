@@ -12,10 +12,13 @@ def frasesio():
         tipos = extract(palabra)
         # Si la palabra existe en el diccionario
         if tipos:
-            tipos = [ABREVIACIONES[tipo] for tipo in tipos]
-            resultado = " o ".join(tipos)
-            print("\n\nLa palabra |-{}-| es de tipo: {}\n"
-                  .format(palabra, resultado), end="")
+            try:
+                tipos = [ABREVIACIONES[tipo] for tipo in tipos]
+                resultado = " o ".join(tipos)
+                print("\n\nLa palabra |-{}-| es de tipo: {}\n"
+                    .format(palabra, resultado), end="")
+            except KeyError as a:
+                print("Error: Abreviatura no incluida en el diccionario ({}), si quiere informar utilize el email -> javierhidalgo_c@hotmail.com".format(a))
         # Si la palabra no existe
         else:
             print(
