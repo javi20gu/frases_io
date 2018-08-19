@@ -4,9 +4,7 @@ def frasesio():
     print("|________Bienvenid@s a FrasesIO________|")
 
     # El usuario introduce toda la frase
-    frase = input("\nIntroduce una frase: ").lower()
-    # Lo convierte en una lista mediante los espacios
-    palabras = frase.lower().split(" ")
+    palabras = input("\nIntroduce una frase: ").lower().split(" ")
 
     # Recorre todas las palabras introducidas
     for palabra in palabras:

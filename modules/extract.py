@@ -25,5 +25,3 @@ def extract(palabra: str):
 
             # Retornamos los tipos de la palabra.
             return tipos
-        # En caso de que no lo encuentre
-        return None
