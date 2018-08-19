@@ -15,6 +15,7 @@ ABREVIACIONES = {
     "v. cop": "Verbo Copulativo",
     "p. p. irreg": "Verbo del Participio del Presente Irregular",
     "tr": "Verbo Transitivo",
+    "tr. der": "Verbo Transitivo (Uso Derecho)",
     "tr. mat": "Verbo Transitivo uso Matematicas",
     "tr. e intr": "Verbo Transitivo e Verbo Intrasitivo",
     "intr. y tr": "Verbo Intrasitivo e Verbo Transitivo",
